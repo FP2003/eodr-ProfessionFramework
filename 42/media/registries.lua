@@ -1,7 +1,8 @@
 -- Build 42 registers identifiers before scripts and normal Lua are loaded.
--- These hidden aliases preserve the B41 profession-trait migration path. Each
--- static definition grants its real B42 vanilla trait; new integrations should
--- grant the `base:` trait directly instead (see docs/B42-MIGRATION.md).
+-- These hidden aliases preserve the B41 profession-trait migration path. The
+-- B42 server handler converts them to their real vanilla trait on first spawn;
+-- new integrations should grant the `base:` trait directly instead (see
+-- docs/B42-MIGRATION.md).
 
 ProfessionFrameworkRegistries = ProfessionFrameworkRegistries or {}
 ProfessionFrameworkRegistries.SpecialTraits = ProfessionFrameworkRegistries.SpecialTraits or {}
