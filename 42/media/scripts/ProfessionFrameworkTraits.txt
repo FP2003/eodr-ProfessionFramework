@@ -1,7 +1,7 @@
 /*
  * Build 42 static replacements for B41's hidden "special" profession traits.
- * Each alias grants the actual B42 trait during character creation, rather
- * than trying to add or swap a trait at runtime.
+ * The Build 42 server handler converts each alias to its actual B42 trait on
+ * first spawn. New integrations should grant the `base:` trait directly.
  */
 
 module ProfessionFramework
