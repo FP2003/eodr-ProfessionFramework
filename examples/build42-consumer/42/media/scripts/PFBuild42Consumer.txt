@@ -1,0 +1,22 @@
+module PFBuild42Consumer
+{
+    character_trait_definition PFBuild42Consumer:survivalist
+    {
+        CharacterTrait = PFBuild42Consumer:survivalist,
+        UIName = UI_trait_PFBuild42Consumer_Survivalist,
+        UIDescription = UI_trait_PFBuild42Consumer_SurvivalistDesc,
+        Cost = 2,
+        XPBoosts = Sneak=1,
+    }
+
+    character_profession_definition PFBuild42Consumer:scout
+    {
+        CharacterProfession = PFBuild42Consumer:scout,
+        UIName = UI_prof_PFBuild42Consumer_Scout,
+        UIDescription = UI_profdesc_PFBuild42Consumer_Scout,
+        Cost = 0,
+        IconPathName = profession_parkranger2,
+        GrantedTraits = base:outdoorsman,
+        XPBoosts = PlantScavenging=1;Trapping=1,
+    }
+}

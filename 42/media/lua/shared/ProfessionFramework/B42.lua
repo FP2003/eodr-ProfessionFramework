@@ -546,17 +546,54 @@ local function selectedTraitIds(player)
     return result
 end
 
-local function appliedMarkers(player)
+local function frameworkState(player, create)
     local modData = player:getModData()
     local state = modData.ProfessionFramework
     if type(state) ~= "table" then
+        if not create then
+            return nil
+        end
         state = {}
         modData.ProfessionFramework = state
     end
+    return state
+end
+
+local function appliedMarkers(player)
+    local state = frameworkState(player, true)
     if type(state.B42Applied) ~= "table" then
         state.B42Applied = {}
     end
     return state.B42Applied
+end
+
+local function markLegacyTraitOrigin(player, id)
+    local state = frameworkState(player, true)
+    if type(state.B42LegacyTraitOrigins) ~= "table" then
+        state.B42LegacyTraitOrigins = {}
+    end
+    state.B42LegacyTraitOrigins[id] = true
+end
+
+local function legacyOriginTraitIds(player)
+    local state = frameworkState(player, false)
+    local origins = state and state.B42LegacyTraitOrigins
+    if type(origins) ~= "table" then
+        return {}
+    end
+
+    local result = {}
+    local traits = player:getCharacterTraits()
+    for aliasId, targetId in pairs(PF.LegacyAliasRuntimeTargets) do
+        if origins[aliasId] then
+            local target = lookup("trait", targetId)
+            if target and traits:get(target) then
+                table.insert(result, aliasId)
+            end
+        end
+    end
+    table.sort(result)
+    return result
 end
 
 local function applyBehavior(kind, id, details, player, square)
@@ -595,22 +632,58 @@ local function applyBehavior(kind, id, details, player, square)
     end
 end
 
+local function traitIsActive(player, id)
+    local trait = lookup("trait", id)
+    return trait and player:getCharacterTraits():get(trait)
+end
+
+local function enqueueActiveTraits(player, queue, queued)
+    for _, id in ipairs(selectedTraitIds(player)) do
+        if not queued[id] then
+            queued[id] = true
+            table.insert(queue, id)
+        end
+    end
+end
+
+local function runNewGameTraitBehaviors(player, square)
+    local queue = {}
+    local queued = {}
+    enqueueActiveTraits(player, queue, queued)
+
+    local index = 1
+    while index <= #queue do
+        local id = queue[index]
+        index = index + 1
+
+        if traitIsActive(player, id) then
+            local legacyTarget = PF.LegacyAliasRuntimeTargets[id]
+            if legacyTarget then
+                -- Preserve the legacy id for its client-side OnGameStart
+                -- behavior, then replace it with the real B42 vanilla trait.
+                markLegacyTraitOrigin(player, id)
+                removeTrait(player, id)
+                addTrait(player, legacyTarget)
+            end
+
+            local details = PF.Traits[id]
+            if details then
+                applyBehavior("trait", id, details, player, square)
+            end
+
+            -- Trait add/swap behavior can activate further traits. Queue each
+            -- newly active trait once so its kit and callback run this spawn.
+            enqueueActiveTraits(player, queue, queued)
+        end
+    end
+end
+
 PF.onNewGame = function(player, square)
     if isClient() or not player then
         return
     end
 
-    for _, id in ipairs(selectedTraitIds(player)) do
-        local legacyTarget = PF.LegacyAliasRuntimeTargets[id]
-        if legacyTarget then
-            removeTrait(player, id)
-            addTrait(player, legacyTarget)
-        end
-        local details = PF.Traits[id]
-        if details then
-            applyBehavior("trait", id, details, player, square)
-        end
-    end
+    runNewGameTraitBehaviors(player, square)
 
     local descriptor = player:getDescriptor()
     local profession = descriptor and descriptor:getCharacterProfession()
@@ -696,10 +769,24 @@ PF.onGameStart = function()
     for playerIndex = 0, playerCount - 1 do
         local player = getSpecificPlayer(playerIndex)
         if player then
+            local dispatchedTraits = {}
             for _, id in ipairs(selectedTraitIds(player)) do
                 local details = PF.Traits[id]
                 if details then
                     runGameStartBehavior("trait", id, details, player)
+                    dispatchedTraits[id] = true
+                end
+            end
+
+            -- Legacy aliases are removed server-side during OnNewGame. Their
+            -- origin marker lets an old add-on's client-only hook continue to
+            -- run while the player carries the mapped vanilla trait.
+            for _, id in ipairs(legacyOriginTraitIds(player)) do
+                if not dispatchedTraits[id] then
+                    local details = PF.Traits[id]
+                    if details then
+                        runGameStartBehavior("trait", id, details, player)
+                    end
                 end
             end
 

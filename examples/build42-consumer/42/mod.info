@@ -1,0 +1,5 @@
+name=Profession Framework Build 42 Consumer Fixture
+id=PFBuild42ConsumerFixture
+require=ProfessionFramework
+description=Static Build 42 consumer example for Profession Framework.
+versionMin=42.20
