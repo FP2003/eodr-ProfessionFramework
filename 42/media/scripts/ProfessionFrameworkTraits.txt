@@ -1,0 +1,598 @@
+/*
+ * Build 42 static replacements for B41's hidden "special" profession traits.
+ * Each alias grants the actual B42 trait during character creation, rather
+ * than trying to add or swap a trait at runtime.
+ */
+
+module ProfessionFramework
+{
+    character_trait_definition ProfessionFramework:speeddemon2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:speeddemon2,
+        Cost = 0,
+        UIName = UI_trait_SpeedDemon,
+        UIDescription = UI_trait_SpeedDemonDesc,
+        MutuallyExclusiveTraits = base:sundaydriver,
+        GrantedTraits = base:speeddemon,
+    }
+
+    character_trait_definition ProfessionFramework:sundaydriver2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:sundaydriver2,
+        Cost = 0,
+        UIName = UI_trait_SundayDriver,
+        UIDescription = UI_trait_SundayDriverDesc,
+        MutuallyExclusiveTraits = base:speeddemon,
+        GrantedTraits = base:sundaydriver,
+    }
+
+    character_trait_definition ProfessionFramework:baseballplayer2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:baseballplayer2,
+        Cost = 0,
+        UIName = UI_trait_PlaysBaseball,
+        GrantedTraits = base:baseballplayer,
+    }
+
+    character_trait_definition ProfessionFramework:brave2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:brave2,
+        Cost = 0,
+        UIName = UI_trait_brave,
+        UIDescription = UI_trait_bravedesc,
+        MutuallyExclusiveTraits = base:cowardly;base:agoraphobic;base:claustrophobic;base:adrenalinejunkie;base:desensitized,
+        GrantedTraits = base:brave,
+    }
+
+    character_trait_definition ProfessionFramework:cowardly2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:cowardly2,
+        Cost = 0,
+        UIName = UI_trait_cowardly,
+        UIDescription = UI_trait_cowardlydesc,
+        MutuallyExclusiveTraits = base:brave;base:adrenalinejunkie;base:desensitized,
+        GrantedTraits = base:cowardly,
+    }
+
+    character_trait_definition ProfessionFramework:clumsy2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:clumsy2,
+        Cost = 0,
+        UIName = UI_trait_clumsy,
+        UIDescription = UI_trait_clumsydesc,
+        MutuallyExclusiveTraits = base:graceful,
+        GrantedTraits = base:clumsy,
+    }
+
+    character_trait_definition ProfessionFramework:graceful2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:graceful2,
+        Cost = 0,
+        UIName = UI_trait_graceful,
+        UIDescription = UI_trait_gracefuldesc,
+        MutuallyExclusiveTraits = base:clumsy,
+        GrantedTraits = base:graceful,
+    }
+
+    character_trait_definition ProfessionFramework:shortsighted2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:shortsighted2,
+        Cost = 0,
+        UIName = UI_trait_shortsigh,
+        UIDescription = UI_trait_shortsighdesc,
+        MutuallyExclusiveTraits = base:eagleeyed,
+        GrantedTraits = base:shortsighted,
+    }
+
+    character_trait_definition ProfessionFramework:eagleeyed2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:eagleeyed2,
+        Cost = 0,
+        UIName = UI_trait_eagleeyed,
+        UIDescription = UI_trait_eagleeyeddesc,
+        MutuallyExclusiveTraits = base:shortsighted,
+        GrantedTraits = base:eagleeyed,
+    }
+
+    character_trait_definition ProfessionFramework:hardofhearing2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:hardofhearing2,
+        Cost = 0,
+        UIName = UI_trait_hardhear,
+        UIDescription = UI_trait_hardheardesc,
+        MutuallyExclusiveTraits = base:keenhearing;base:deaf,
+        GrantedTraits = base:hardofhearing,
+    }
+
+    character_trait_definition ProfessionFramework:deaf2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:deaf2,
+        Cost = 0,
+        UIName = UI_trait_deaf,
+        UIDescription = UI_trait_deafdesc,
+        MutuallyExclusiveTraits = base:keenhearing;base:hardofhearing,
+        GrantedTraits = base:deaf,
+    }
+
+    character_trait_definition ProfessionFramework:keenhearing2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:keenhearing2,
+        Cost = 0,
+        UIName = UI_trait_keenhearing,
+        UIDescription = UI_trait_keenhearingdesc,
+        MutuallyExclusiveTraits = base:hardofhearing;base:deaf,
+        GrantedTraits = base:keenhearing,
+    }
+
+    character_trait_definition ProfessionFramework:heartyappitite2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:heartyappitite2,
+        Cost = 0,
+        UIName = UI_trait_heartyappetite,
+        UIDescription = UI_trait_heartyappetitedesc,
+        MutuallyExclusiveTraits = base:lighteater,
+        GrantedTraits = base:heartyappetite,
+    }
+
+    character_trait_definition ProfessionFramework:lighteater2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:lighteater2,
+        Cost = 0,
+        UIName = UI_trait_lighteater,
+        UIDescription = UI_trait_lighteaterdesc,
+        MutuallyExclusiveTraits = base:heartyappetite,
+        GrantedTraits = base:lighteater,
+    }
+
+    character_trait_definition ProfessionFramework:thickskinned2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:thickskinned2,
+        Cost = 0,
+        UIName = UI_trait_thickskinned,
+        UIDescription = UI_trait_thickskinneddesc,
+        MutuallyExclusiveTraits = base:thinskinned,
+        GrantedTraits = base:thickskinned,
+    }
+
+    character_trait_definition ProfessionFramework:thinskinned2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:thinskinned2,
+        Cost = 0,
+        UIName = UI_trait_ThinSkinned,
+        UIDescription = UI_trait_ThinSkinnedDesc,
+        MutuallyExclusiveTraits = base:thickskinned,
+        GrantedTraits = base:thinskinned,
+    }
+
+    character_trait_definition ProfessionFramework:resilient2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:resilient2,
+        Cost = 0,
+        UIName = UI_trait_resilient,
+        UIDescription = UI_trait_resilientdesc,
+        MutuallyExclusiveTraits = base:pronetoillness,
+        GrantedTraits = base:resilient,
+    }
+
+    character_trait_definition ProfessionFramework:pronetoillness2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:pronetoillness2,
+        Cost = 0,
+        UIName = UI_trait_pronetoillness,
+        UIDescription = UI_trait_pronetoillnessdesc,
+        MutuallyExclusiveTraits = base:resilient,
+        GrantedTraits = base:pronetoillness,
+    }
+
+    character_trait_definition ProfessionFramework:dextrous2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:dextrous2,
+        Cost = 0,
+        UIName = UI_trait_Dexterous,
+        UIDescription = UI_trait_DexterousDesc,
+        MutuallyExclusiveTraits = base:allthumbs,
+        GrantedTraits = base:dextrous,
+    }
+
+    character_trait_definition ProfessionFramework:allthumbs2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:allthumbs2,
+        Cost = 0,
+        UIName = UI_trait_AllThumbs,
+        UIDescription = UI_trait_AllThumbsDesc,
+        MutuallyExclusiveTraits = base:dextrous,
+        GrantedTraits = base:allthumbs,
+    }
+
+    character_trait_definition ProfessionFramework:fasthealer2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:fasthealer2,
+        Cost = 0,
+        UIName = UI_trait_FastHealer,
+        UIDescription = UI_trait_FastHealerDesc,
+        MutuallyExclusiveTraits = base:slowhealer,
+        GrantedTraits = base:fasthealer,
+    }
+
+    character_trait_definition ProfessionFramework:slowhealer2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:slowhealer2,
+        Cost = 0,
+        UIName = UI_trait_SlowHealer,
+        UIDescription = UI_trait_SlowHealerDesc,
+        MutuallyExclusiveTraits = base:fasthealer,
+        GrantedTraits = base:slowhealer,
+    }
+
+    character_trait_definition ProfessionFramework:fastlearner2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:fastlearner2,
+        Cost = 0,
+        UIName = UI_trait_FastLearner,
+        UIDescription = UI_trait_FastLearnerDesc,
+        MutuallyExclusiveTraits = base:slowlearner;base:crafty,
+        GrantedTraits = base:fastlearner,
+    }
+
+    character_trait_definition ProfessionFramework:slowlearner2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:slowlearner2,
+        Cost = 0,
+        UIName = UI_trait_SlowLearner,
+        UIDescription = UI_trait_SlowLearnerDesc,
+        MutuallyExclusiveTraits = base:fastlearner;base:crafty,
+        GrantedTraits = base:slowlearner,
+    }
+
+    character_trait_definition ProfessionFramework:fastreader2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:fastreader2,
+        Cost = 0,
+        UIName = UI_trait_FastReader,
+        UIDescription = UI_trait_FastReaderDesc,
+        MutuallyExclusiveTraits = base:slowreader;base:illiterate,
+        GrantedTraits = base:fastreader,
+    }
+
+    character_trait_definition ProfessionFramework:slowreader2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:slowreader2,
+        Cost = 0,
+        UIName = UI_trait_SlowReader,
+        UIDescription = UI_trait_SlowReaderDesc,
+        MutuallyExclusiveTraits = base:fastreader;base:illiterate,
+        GrantedTraits = base:slowreader,
+    }
+
+    character_trait_definition ProfessionFramework:illiterate2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:illiterate2,
+        Cost = 0,
+        UIName = UI_trait_Illiterate,
+        UIDescription = UI_trait_IlliterateDesc,
+        MutuallyExclusiveTraits = base:slowreader;base:fastreader,
+        GrantedTraits = base:illiterate,
+    }
+
+    character_trait_definition ProfessionFramework:needslesssleep2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:needslesssleep2,
+        Cost = 0,
+        UIName = UI_trait_LessSleep,
+        UIDescription = UI_trait_LessSleepDesc,
+        MutuallyExclusiveTraits = base:needsmoresleep,
+        GrantedTraits = base:needslesssleep,
+    }
+
+    character_trait_definition ProfessionFramework:needsmoresleep2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:needsmoresleep2,
+        Cost = 0,
+        UIName = UI_trait_MoreSleep,
+        UIDescription = UI_trait_MoreSleepDesc,
+        MutuallyExclusiveTraits = base:needslesssleep,
+        GrantedTraits = base:needsmoresleep,
+    }
+
+    character_trait_definition ProfessionFramework:inconspicuous2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:inconspicuous2,
+        Cost = 0,
+        UIName = UI_trait_Inconspicuous,
+        UIDescription = UI_trait_InconspicuousDesc,
+        MutuallyExclusiveTraits = base:conspicuous,
+        GrantedTraits = base:inconspicuous,
+    }
+
+    character_trait_definition ProfessionFramework:conspicuous2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:conspicuous2,
+        Cost = 0,
+        UIName = UI_trait_Conspicuous,
+        UIDescription = UI_trait_ConspicuousDesc,
+        MutuallyExclusiveTraits = base:inconspicuous,
+        GrantedTraits = base:conspicuous,
+    }
+
+    character_trait_definition ProfessionFramework:organized2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:organized2,
+        Cost = 0,
+        UIName = UI_trait_Packmule,
+        UIDescription = UI_trait_PackmuleDesc,
+        MutuallyExclusiveTraits = base:disorganized,
+        GrantedTraits = base:organized,
+    }
+
+    character_trait_definition ProfessionFramework:disorganized2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:disorganized2,
+        Cost = 0,
+        UIName = UI_trait_Disorganized,
+        UIDescription = UI_trait_DisorganizedDesc,
+        MutuallyExclusiveTraits = base:organized,
+        GrantedTraits = base:disorganized,
+    }
+
+    character_trait_definition ProfessionFramework:lowthirst2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:lowthirst2,
+        Cost = 0,
+        UIName = UI_trait_LowThirst,
+        UIDescription = UI_trait_LowThirstDesc,
+        MutuallyExclusiveTraits = base:highthirst,
+        GrantedTraits = base:lowthirst,
+    }
+
+    character_trait_definition ProfessionFramework:highthirst2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:highthirst2,
+        Cost = 0,
+        UIName = UI_trait_HighThirst,
+        UIDescription = UI_trait_HighThirstDesc,
+        MutuallyExclusiveTraits = base:lowthirst,
+        GrantedTraits = base:highthirst,
+    }
+
+    character_trait_definition ProfessionFramework:weakstomach2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:weakstomach2,
+        Cost = 0,
+        UIName = UI_trait_WeakStomach,
+        UIDescription = UI_trait_WeakStomachDesc,
+        MutuallyExclusiveTraits = base:irongut,
+        GrantedTraits = base:weakstomach,
+    }
+
+    character_trait_definition ProfessionFramework:irongut2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:irongut2,
+        Cost = 0,
+        UIName = UI_trait_IronGut,
+        UIDescription = UI_trait_IronGutDesc,
+        MutuallyExclusiveTraits = base:weakstomach,
+        GrantedTraits = base:irongut,
+    }
+
+    character_trait_definition ProfessionFramework:outdoorsman2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:outdoorsman2,
+        Cost = 0,
+        UIName = UI_trait_outdoorsman,
+        UIDescription = UI_trait_outdoorsmandesc,
+        GrantedTraits = base:outdoorsman,
+    }
+
+    character_trait_definition ProfessionFramework:adrenalinejunkie2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:adrenalinejunkie2,
+        Cost = 0,
+        UIName = UI_trait_AdrenalineJunkie,
+        UIDescription = UI_trait_AdrenalineJunkieDesc,
+        MutuallyExclusiveTraits = base:agoraphobic;base:claustrophobic;base:cowardly;base:desensitized,
+        GrantedTraits = base:adrenalinejunkie,
+    }
+
+    character_trait_definition ProfessionFramework:nightvision2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:nightvision2,
+        Cost = 0,
+        UIName = UI_trait_NightVision,
+        UIDescription = UI_trait_NightVisionDesc,
+        GrantedTraits = base:nightvision,
+    }
+
+    character_trait_definition ProfessionFramework:agoraphobic2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:agoraphobic2,
+        Cost = 0,
+        UIName = UI_trait_agoraphobic,
+        UIDescription = UI_trait_agoraphobicdesc,
+        MutuallyExclusiveTraits = base:adrenalinejunkie;base:brave;base:desensitized;base:claustrophobic,
+        GrantedTraits = base:agoraphobic,
+    }
+
+    character_trait_definition ProfessionFramework:claustophobic2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:claustophobic2,
+        Cost = 0,
+        UIName = UI_trait_claustro,
+        UIDescription = UI_trait_claustrodesc,
+        MutuallyExclusiveTraits = base:adrenalinejunkie;base:agoraphobic;base:brave;base:desensitized,
+        GrantedTraits = base:claustrophobic,
+    }
+
+    character_trait_definition ProfessionFramework:hemophobic2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:hemophobic2,
+        Cost = 0,
+        UIName = UI_trait_Hemophobic,
+        UIDescription = UI_trait_HemophobicDesc,
+        MutuallyExclusiveTraits = base:desensitized,
+        GrantedTraits = base:hemophobic,
+    }
+
+    character_trait_definition ProfessionFramework:insomniac2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:insomniac2,
+        Cost = 0,
+        UIName = UI_trait_Insomniac,
+        UIDescription = UI_trait_InsomniacDesc,
+        GrantedTraits = base:insomniac,
+    }
+
+    character_trait_definition ProfessionFramework:pacifist2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:pacifist2,
+        Cost = 0,
+        UIName = UI_trait_Pacifist,
+        UIDescription = UI_trait_PacifistDesc,
+        GrantedTraits = base:pacifist,
+    }
+
+    character_trait_definition ProfessionFramework:smoker2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:smoker2,
+        Cost = 0,
+        UIName = UI_trait_Smoker,
+        UIDescription = UI_trait_SmokerDesc,
+        MutuallyExclusiveTraits = base:athletic,
+        GrantedTraits = base:smoker,
+    }
+
+    character_trait_definition ProfessionFramework:asthmatic2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:asthmatic2,
+        Cost = 0,
+        UIName = UI_trait_Asthmatic,
+        UIDescription = UI_trait_AsthmaticDesc,
+        GrantedTraits = base:asthmatic,
+    }
+
+    character_trait_definition ProfessionFramework:herbalist2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:herbalist2,
+        Cost = 0,
+        UIName = UI_trait_Herbalist,
+        UIDescription = UI_trait_HerbalistDesc,
+        MutuallyExclusiveTraits = base:herbalist_prof,
+        GrantedTraits = base:herbalist,
+    }
+
+    character_trait_definition ProfessionFramework:handy2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:handy2,
+        Cost = 0,
+        UIName = UI_trait_handy,
+        UIDescription = UI_trait_handydesc,
+        GrantedTraits = base:handy,
+    }
+
+    character_trait_definition ProfessionFramework:jogger2
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = false,
+        CharacterTrait = ProfessionFramework:jogger2,
+        Cost = 0,
+        UIName = UI_trait_Jogger,
+        GrantedTraits = base:jogger,
+    }
+}
