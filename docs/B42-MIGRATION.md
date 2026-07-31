@@ -1,5 +1,8 @@
 # Build 42.20 migration guide
 
+The Build 42 port and this migration guide are authored by **Skizzo**. The
+legacy Build 41 framework remains credited to **Fenris_Wolf**.
+
 Build 42 loads this mod's `42/` package. It leaves the repository-root Build
 41 package intact, so an add-on can support both builds by shipping its own
 versioned directories.

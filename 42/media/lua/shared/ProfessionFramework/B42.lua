@@ -15,7 +15,7 @@ end
 PF.B42_LOADED = true
 PF.VERSION = "2.0.0-b42"
 PF.BUILD = "42.20"
-PF.AUTHOR = "Fenris_Wolf"
+PF.AUTHOR = "Skizzo"
 
 PF.ERROR = 0
 PF.WARN = 1

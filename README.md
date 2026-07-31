@@ -2,10 +2,11 @@
 
 A mod for Project Zomboid (by **Fenris_Wolf**)
 
-> **Build 42.20:** the compatible package is in [`42/`](42/), and its migration
-> guide is [`docs/B42-MIGRATION.md`](docs/B42-MIGRATION.md). The API documented
-> below describes the legacy Build 41 implementation; Build 42 uses static
-> registries and script definitions instead of the retired factory overrides.
+> **Build 42.20 (port by Skizzo):** the compatible package is in [`42/`](42/),
+> and its migration guide is [`docs/B42-MIGRATION.md`](docs/B42-MIGRATION.md).
+> The API documented below describes the legacy Build 41 implementation; Build
+> 42 uses static registries and script definitions instead of the retired
+> factory overrides.
 
 Adds a framework to simply adding additional professions and traits to project zomboid,
 and editing the default professions. As well as simplifying the modding process and letting
