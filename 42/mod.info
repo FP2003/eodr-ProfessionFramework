@@ -1,0 +1,6 @@
+name=Profession Framework
+poster=professionframework.png
+id=ProfessionFramework
+description=A static-first framework for adding Project Zomboid professions and traits.
+url=https://github.com/FP2003/eodr-ProfessionFramework
+versionMin=42.20.0
