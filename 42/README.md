@@ -7,3 +7,6 @@ game builds.
 Build 42 definitions must be registered before their scripts load. The B42
 framework therefore uses `media/registries.lua` and static script definitions;
 runtime Lua only attaches behaviour to definitions that already exist.
+
+See [`../docs/B42-MIGRATION.md`](../docs/B42-MIGRATION.md) for a complete
+consumer-mod example, supported runtime behavior, and validation instructions.
