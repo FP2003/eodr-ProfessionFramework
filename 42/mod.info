@@ -3,4 +3,5 @@ poster=professionframework.png
 id=ProfessionFramework
 description=Skizzo's Build 42 port of a static-first framework for adding Project Zomboid professions and traits.
 url=https://github.com/FP2003/eodr-ProfessionFramework
+tags=Build 42
 versionMin=42.20

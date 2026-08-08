@@ -33,6 +33,27 @@ Be aware this mod adds no new professions or traits itself, it is merely a frame
 For maximum compatibility this mod should not included in your own mod, but instead listed as
 a requirement in your `mod.info` file.
 
+## Steam Workshop release
+
+This repository keeps the legacy Build 41 package at the root and the Build 42
+package in `42/`. Build 42 also requires the sibling `common/` directory; it is
+kept in the repository with a placeholder file so the directory survives source
+checkouts.
+
+To create a clean Workshop upload project, run:
+
+```powershell
+.\tools\package-workshop.ps1 -Clean
+```
+
+The staged project is written to `dist/workshop/` with the Workshop-required
+`Contents/mods/ProfessionFramework/` layout. Select that folder from Project
+Zomboid's Workshop upload screen, review the generated item, and change its
+visibility from `unlisted` to `public` only after testing the downloaded item.
+
+The staging step intentionally excludes repository documentation, examples,
+generated HTML docs, and validation tools from the player-facing upload.
+
 ## Build 41 (legacy) API
 
 The advantages of using the Profession Framework vs the vanilla system:
