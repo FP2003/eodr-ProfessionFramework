@@ -1,0 +1,16 @@
+version=1
+title=Profession Framework
+description=[h2]Profession Framework[/h2]
+description=A framework for adding professions, traits, starting kits, recipes, XP boosts, and spawn behavior to Project Zomboid.
+description=Supports legacy Build 41 and Build 42.20+ through one Workshop item.
+description=
+description=[h3]Build 42 users[/h3]
+description=Build 42 uses static profession definitions and a separate runtime behavior API. Starting items go to inventory or the ground; they are not automatically equipped, and the legacy clothing table is not supported.
+description=[url=https://github.com/FP2003/eodr-ProfessionFramework/blob/master/docs/B42-MIGRATION.md]Read the Build 42 migration guide[/url]
+description=
+description=[h3]Credits[/h3]
+description=Legacy Build 41 framework by Fenris_Wolf. Build 42 port by Skizzo.
+description=
+description=[url=https://github.com/FP2003/eodr-ProfessionFramework]Source and documentation[/url]
+tags=Build 41;Build 42;Framework;
+visibility=unlisted

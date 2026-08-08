@@ -125,6 +125,17 @@ in single-player) during `OnNewGame`. `AlwaysUseStartingKits` remains `true` by
 default; set it to `false` before character creation if the sandbox
 `StarterKit` setting should control those grants.
 
+`inventory` adds item instances to the player's inventory and `square` places
+items on the starting square. Neither field equips a weapon or wears clothing.
+If a weapon must start in a hand, or clothing must start worn, add explicit
+`OnNewGame` behavior and test it in the target game mode. The framework does not
+provide a declarative auto-equip option.
+
+Do not copy the Build 41 `clothing` field into a Build 42 behavior table. It is
+unsupported here; because behavior fields are validated as one registration,
+including it can prevent the profession's otherwise valid starting kit from
+being attached as well.
+
 The framework validates behavior ids, item counts, spawn shapes, and duplicate
 attachments. `addTrait` and `addProfession` remain as warning-emitting
 compatibility aliases, but are behavior-only: they reject B41 static fields and

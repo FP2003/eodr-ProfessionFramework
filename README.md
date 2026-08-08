@@ -13,9 +13,27 @@ and editing the default professions. As well as simplifying the modding process 
 professions have the 'special' traits (brave, lucky, etc), it also  simplifies the processes
 of adding starting gear to various professions/traits.
 
+## Choose the guide for your Build
+
+The repository contains two APIs:
+
+* **Build 41:** the legacy Lua table API documented below.
+* **Build 42.20+:** the static-definition and runtime-behavior API in the
+  [Build 42 migration guide](docs/B42-MIGRATION.md), with a [copyable consumer example](examples/build42-consumer).
+
+For Build 42, starting items are added with `inventory` (the character's
+inventory) or `square` (the ground). They are not automatically worn or placed
+in the character's hands. The legacy `clothing` field is not supported by this
+Build 42 framework; including it in a Build 42 behavior table causes the whole
+behavior attachment to fail. Use a separate clothing/UI implementation if
+you need clothing-selection options, or add clothing items to `inventory` as a
+manual workaround.
+
 Be aware this mod adds no new professions or traits itself, it is merely a framework to assist modders.
 For maximum compatibility this mod should not included in your own mod, but instead listed as
 a requirement in your `mod.info` file.
+
+## Build 41 (legacy) API
 
 The advantages of using the Profession Framework vs the vanilla system:
 
@@ -122,7 +140,7 @@ ProfessionFramework.addProfession('parkranger', {
     clothing = {
         Tshirt = {"Base.Tshirt_Profession_RangerBrown", "Base.Tshirt_Profession_RangerGreen"},
         Pants = {"Base.Trousers_Ranger"},
-    }
+    },
     spawns = {
         ["Muldraugh, KY"] = {
             { worldX=11+25, worldY=6+25, posX=140, posY=74 }, -- Medium House near forest
